@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>Education Meeting HTML5 Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-edu-meeting.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <!--
+
+    TemplateMo 569 Edu Meeting
+
+    https://templatemo.com/tm-569-edu-meeting
+
+    -->
+</head>
+<body>
+
+<header th:replace="fragments/header::header"></header>
+<!-- ***** Main Banner Area Start ***** -->
+<section  layout:fragment="content" class="section main-banner" id="top" data-section="section1">
+    <video autoplay muted loop id="bg-video">
+        <source src="assets/images/course-video.mp4" type="video/mp4" />
+    </video>
+
+    <div class="video-overlay header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="caption">
+                        <h6>Hello Students</h6>
+                        <h2>Welcome to Education</h2>
+                        <p>Where innovation meets education.
+                            <a rel="nofollow" href="https://templatemo.com/page/1" target="_blank"></a>
+                            <a rel="nofollow" href="https://www.pexels.com/@pressmaster" target="_blank"></a></p>
+                        <div class="main-button-red">
+                            <div><a th:href="@{/contact}">Join Us Now!</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Main Banner Area End ***** -->
+
+<section class="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="owl-service-item owl-carousel">
+
+                    <div class="item">
+                        <div class="icon">
+                            <img src="assets/images/service-icon-01.png" alt="">
+                        </div>
+                        <div class="down-content">
+                            <h4>Best Education</h4>
+                            <p>Cutting-edge IT education prepares students for today's tech challenges.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="icon">
+                            <img src="assets/images/service-icon-02.png" alt="">
+                        </div>
+                        <div class="down-content">
+                            <h4>Best Teachers</h4>
+                            <p>The best IT teachers inspire and empower students to excel in technology.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="icon">
+                            <img src="assets/images/service-icon-03.png" alt="">
+                        </div>
+                        <div class="down-content">
+                            <h4>Best Students</h4>
+                            <p>The best IT students demonstrate passion and make impactful contributions in technology.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="icon">
+                            <img src="assets/images/service-icon-02.png" alt="">
+                        </div>
+                        <div class="down-content">
+                            <h4>Online Meeting</h4>
+                            <p>Online meetings streamline collaboration and enhance connectivity.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="icon">
+                            <img src="assets/images/service-icon-03.png" alt="">
+                        </div>
+                        <div class="down-content">
+                            <h4>Best Networking</h4>
+                            <p>Building a robust network in IT education unlocks industry insights the way for career success.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="upcoming-meetings" id="meetings">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2>Upcoming Meetings</h2>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="categories">
+                    <h4>Meeting Categories</h4>
+                    <ul>
+                        <li><a href="#">Tech Talks</a></li>
+                        <li><a href="#">Graphic Design Masterclasses</a></li>
+                        <li><a href="#">Digital Marketing in Tech Webinars</a></li>
+                        <li><a href="#">Ethical Hacking and Cybersecurity Conferences</a></li>
+                        <li><a href="#">Mobile App Development Hackathons</a></li>
+                    </ul>
+                    <div class="main-button-red">
+                        <a th:href="@{/meetings}">All Upcoming Meetings</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div th:each="article:${articles}" class="col-lg-6">
+                        <div class="meeting-item">
+                            <div class="thumb">
+                                <div class="price">
+                                    <span>$22.00</span>
+                                </div>
+                                <a th:href="@{/details}"><img th:src="${article.image}" alt="New Lecturer Meeting"></a>
+                            </div>
+                            <div class="down-content">
+                                <div class="date">
+                                    <h6>Nov <span>10</span></h6>
+                                </div>
+                                <a th:href="@{/details}"><h4 th:text="${article.title}"></h4></a>
+                                <p style="height: 60px;" th:text="${article.subTitle}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="apply-now" id="apply">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 align-self-center">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="item">
+                            <h3>APPLY FOR BACHELOR DEGREE</h3>
+                            <p>You are allowed to use this edu meeting CSS template for your school or university or business. You can feel free to modify or edit this layout.</p>
+                            <div class="main-button-red">
+                                <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="item">
+                            <h3>APPLY FOR BACHELOR DEGREE</h3>
+                            <p>You are not allowed to redistribute the template ZIP file on any other template website. Please contact us for more information.</p>
+                            <div class="main-button-yellow">
+                                <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="accordions is-first-expanded">
+                    <article class="accordion">
+                            <h2 style="color: black; font-weight: bold;">FAQ</h2>
+                        <div class="accordion-head">
+                            <span>How do I start learning to code?</span>
+                            <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="content">
+                                <p> Decide why you want to learn programming (e.g., web development, data analysis, mobile apps) to choose a language that aligns with your objectives.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="accordion">
+                        <div class="accordion-head">
+                            <span>How do I prepare for coding interviews?</span>
+                            <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="content">
+                                <p> Understand the types of questions commonly asked by companies you are interested in.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="accordion">
+                        <div class="accordion-head">
+                            <span>What are the differences between front-end and back-end development?</span>
+                            <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="content">
+                                <p>Front-end development involves everything that users interact with directly in a web application or website. It focuses on the presentation layer and user interface (UI).
+                                    <hr>
+                                    Back-end development refers to the server-side of web applications. It involves managing the database, server, and application logic that powers the front-end.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="accordion last-accordion">
+                        <div class="accordion-head">
+                            <span>What are some good practices for writing clean and maintainable code?</span>
+                            <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="content">
+                                <p>Break down large functions and classes into smaller, focused modules that handle specific tasks. Each module should have a single responsibility (Single Responsibility Principle).
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="our-courses" id="courses">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2>Our Popular Courses</h2>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="owl-courses-item owl-carousel">
+                    <div th:each="category:${categories}" class="item">
+                        <img width="300px" height="200px" style="object-fit: cover" th:src="${category.image}" alt="Course One">
+                        <div class="down-content">
+                            <h4 style="height: 100px;" th:text="${category.name}"></h4>
+                            <div class="info">
+                                <div class="row">
+                                    <div  class="col-8">
+                                        <div class="main-button-red">
+                                            <div th:each="blog:${blogs}"><a th:href="@{'/blog/' + ${blog.id}}">Join Us Now!</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <span>$160</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="our-facts">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>A Few Facts About Our University</h2>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="count-area-content percentage">
+                                    <div class="count-digit">94</div>
+                                    <div class="count-title">Succesed Students</div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="count-area-content">
+                                    <div class="count-digit">126</div>
+                                    <div class="count-title">Current Teachers</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="count-area-content new-students">
+                                    <div class="count-digit">2345</div>
+                                    <div class="count-title">New Students</div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="count-area-content">
+                                    <div class="count-digit">32</div>
+                                    <div class="count-title">Awards</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <div class="video">
+                    <a href="https://www.youtube.com/watch?v=HndV87XpkWg" target="_blank"><img src="assets/images/play-icon.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-us" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 align-self-center">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="contact" action="/contact" method="post">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h2>Let's get in touch</h2>
+                                </div>
+                                <div class="col-lg-4 form-group">
+                                    <fieldset>
+                                        <input name="firstName" type="text" id="firstName" class="form-control" placeholder="YOURNAME...*" required="">
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-4 form-group">
+                                    <fieldset>
+                                        <input name="email" type="text" id="email" class="form-control" pattern="[^ @]*@[^ @]*" placeholder="YOUR EMAIL..." required="">
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-4 form-group">
+                                    <fieldset>
+                                        <select name="categoryId" class="form-control">
+                                            <option value="0" disabled="" hidden="" selected="">Courses</option>
+                                            <option th:each="category: ${categories}" th:text="${category.name}"
+                                                    th:value="${category.id}"></option>
+                                        </select>
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <fieldset>
+                                        <textarea name="message" type="text" class="form-control" id="message" placeholder="YOUR MESSAGE..." ></textarea>
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <button type="submit" id="form-submit" class="btn btn-primary">SEND MESSAGE NOW</button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="right-info">
+                    <ul>
+                        <li>
+                            <h6>Phone Number</h6>
+                            <span>010-020-0340</span>
+                        </li>
+                        <li>
+                            <h6>Email Address</h6>
+                            <span>info@meeting.edu</span>
+                        </li>
+                        <li>
+                            <h6>Street Address</h6>
+                            <span>Rio de Janeiro - RJ, 22795-008, Brazil</span>
+                        </li>
+                        <li>
+                            <h6>Website URL</h6>
+                            <span>www.meeting.edu</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments/footer::footer"></footer>
+</body>
+
+</html>

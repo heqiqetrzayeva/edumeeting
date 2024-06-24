@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">
+            <a th:href="@{/admin/by-name}" class="btn btn-primary btn-sm">Article</a>
+        </h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="application : ${applications}">
+                    <td th:text="${application.id}">ID</td>
+<!--                    <td th:text="${application.name}">Name</td>-->
+<!--                    <td th:text="${application.price}">Price</td>-->
+                </tr>
+                </tbody>
+            </table>
+            <div>
+                <span th:text="'Page: ' + (${page} + 1)"></span>
+            </div>
+            <div>
+<!--                <a th:if="${page > 0}" th:href="@{/admin/by-name(name=${name}, page=${page - 1}, size=${size})}">Previous</a>-->
+<!--                <a th:href="@{/admin/by-name(name=${name}, page=${page + 1}, size=${size})}">Next</a>-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
