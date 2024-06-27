@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -30,6 +31,12 @@ public class Article {
 
     @ManyToOne
     private Category category;
+
+    @OneToMany(mappedBy="article", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Comment> comments = new HashSet<>();
+
+    @ManyToOne
+    private UserEntity user;
 
     @ManyToMany
     @JoinTable(name = "article_tags", joinColumns = @JoinColumn(name = "articles",

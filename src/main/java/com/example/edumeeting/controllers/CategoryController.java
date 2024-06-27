@@ -2,7 +2,9 @@ package com.example.edumeeting.controllers;
 
 import com.example.edumeeting.dtos.categorydtos.CategoryCreateDto;
 import com.example.edumeeting.dtos.categorydtos.CategoryDto;
+import com.example.edumeeting.dtos.contactdtos.ContactDto;
 import com.example.edumeeting.services.CategoryService;
+import com.example.edumeeting.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,9 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private ContactService contactService;
+
 
     @GetMapping("/admin/category/create")
     public String categoryCreate() {
@@ -27,7 +32,7 @@ public class CategoryController {
 
 
     @GetMapping("/admin/category")
-    public String categoryGet(Model model, @Param("keyword") String keyword) {
+    public String categoryGet(Model model) {
         List<CategoryDto> categories = categoryService.getAllCategories();
         model.addAttribute("categories", categories);
         return "/admin/category/category";
@@ -37,7 +42,7 @@ public class CategoryController {
     @PostMapping("/admin/category/create")
     public String categoryCreate(@ModelAttribute CategoryCreateDto categoryCreateDto) {
         categoryService.add(categoryCreateDto);
-        return "redirect:/admin/category/category";
+        return "redirect:/admin/category";
     }
 
 }

@@ -1,7 +1,9 @@
 package com.example.edumeeting.services.impls;
 
+import com.example.edumeeting.dtos.articledtos.ArticleHomeDto;
 import com.example.edumeeting.dtos.categorydtos.CategoryCreateDto;
 import com.example.edumeeting.dtos.categorydtos.CategoryDto;
+import com.example.edumeeting.models.Article;
 import com.example.edumeeting.models.Category;
 import com.example.edumeeting.repositories.CategoryRepository;
 import com.example.edumeeting.services.CategoryService;
@@ -38,6 +40,15 @@ public class CategoryServiceImpl implements CategoryService {
                 .map(category -> modelMapper.map(category, CategoryDto.class))
                 .collect(Collectors.toList());
         return categories;
+    }
+
+    @Override
+    public List<CategoryDto> searchCategories(String keyword) {
+        List<Category> categories = categoryRepository.findByName(keyword.toLowerCase());
+        List<CategoryDto> categoryDtos = categories.stream().
+                map(Category->modelMapper.map(Category, CategoryDto.class))
+                .collect(Collectors.toList());
+        return categoryDtos;
     }
 
 

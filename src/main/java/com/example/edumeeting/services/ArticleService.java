@@ -4,6 +4,7 @@ package com.example.edumeeting.services;
 import com.example.edumeeting.dtos.articledtos.ArticleCreateDto;
 import com.example.edumeeting.dtos.articledtos.ArticleDto;
 import com.example.edumeeting.dtos.articledtos.ArticleHomeDto;
+import com.example.edumeeting.dtos.articledtos.ArticleRelatedDto;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -28,6 +29,8 @@ public interface ArticleService{
      ArticleCreateDto findUpdateArticle(Long id);
 
      ArticleHomeDto findHomeArticle(Long id);
+
+     List<ArticleRelatedDto> getRelatedArticles();
 
 
 

@@ -1,10 +1,4 @@
 <footer th:fragment="footer">
-    <div class="footer">
-        <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved.
-            <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
-    </div>
-    <!-- Scripts -->
-    <!-- Bootstrap core JavaScript -->
     <script th:src="@{vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
@@ -60,5 +54,18 @@
         $(window).scroll(function () {
             checkSection();
         });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function save()
+        {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: true,
+                timer: 6000
+            });
+        }
     </script>
 </footer>

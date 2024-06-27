@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/admin/layout">
+<body>
+<div layout:fragment="container" class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Resumes</h1>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">
+        <a th:href="@{/admin/vacancy/create}" class="btn btn-primary btn-sm">Create a new vacancy</a>
+      </h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+          <tr>
+            <th>Vacancy</th>
+            <th>Candidate</th>
+            <th>Resume</th>
+          </tr>
+          </thead>
+          <tfoot>
+          <tr>
+            <th>Vacancy</th>
+            <th>Candidate</th>
+            <th>Resume</th>
+          </tr>
+          </tfoot>
+          <tbody>
+          <tr th:each="contact : ${contacts}">
+            <td th:text="${contact.vacancy.name}"></td>
+            <td th:text="${contact.name}"></td>
+            <td>
+              <a target="_blank" th:href="@{'/uploads/' + ${contact.resumePath}}" th:text="${contact.resumePath}"></a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

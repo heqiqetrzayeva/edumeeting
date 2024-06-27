@@ -3,9 +3,12 @@ package com.example.edumeeting.services.impls;
 import com.example.edumeeting.dtos.contactdtos.ContactCreateDto;
 import com.example.edumeeting.dtos.contactdtos.ContactDto;
 import com.example.edumeeting.dtos.userdtos.UserDto;
+import com.example.edumeeting.models.Category;
 import com.example.edumeeting.models.Contact;
 import com.example.edumeeting.models.UserEntity;
+import com.example.edumeeting.models.Vacancy;
 import com.example.edumeeting.repositories.ContactRepository;
+import com.example.edumeeting.repositories.VacancyRepository;
 import com.example.edumeeting.services.ContactService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,9 @@ public class ContactServiceImpl implements ContactService {
     private ContactRepository contactRepository;
 
     @Autowired
+    private VacancyRepository vacancyRepository;
+
+    @Autowired
     private ModelMapper modelMapper;
 
     @Override
@@ -34,9 +40,13 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public void addContact(ContactCreateDto contactCreateDto) {
         Contact contact = new Contact();
+        Vacancy vacancy = vacancyRepository
+                .findById(contactCreateDto.getVacancyId()).get();
         contact.setEmail(contactCreateDto.getEmail());
         contact.setName(contactCreateDto.getName());
         contact.setMessage(contactCreateDto.getMessage());
+        contact.setResumePath(contactCreateDto.getResumePath());
+        contact.setVacancy(vacancy);
         contactRepository.save(contact);
     }
 }

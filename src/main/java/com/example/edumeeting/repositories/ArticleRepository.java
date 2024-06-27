@@ -13,9 +13,7 @@ import java.util.List;
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 
-    List<ArticleDto> searchByTitle(@Param("title") String title);
-
-    @Query("SELECT a FROM Article a WHERE a.title=?1")
+@Query(value = "SELECT * FROM articles WHERE title LIKE %?1%", nativeQuery = true)
     List<Article> findByTitle(String title);
 
 

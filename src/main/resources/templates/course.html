@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout" >
+
+<body>
+<section layout:fragment="content">
+    <section class="heading-page header-text" id="top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Here are our courses</h2>
+                        <div class="col-7 m-auto">
+                            <form method="post">
+                                <div class="form-group d-flex">
+                                    <input type="text" name="keyword" placeholder="Search..." class="form-control">
+                                    <input type="submit" value="Search" class="btn btn-primary">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section class="meetings-page" id="meetings">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div th:each="category : ${categories}" class="col-lg-4 grayscale" >
+                            <div class="meeting-item">
+                                <div class="thumb">
+                                    <div class="price">
+                                        <span>$14.00</span>
+                                    </div>
+                                    <a style="height: 60px;"><img th:src="${category.image}" alt=""></a>
+                                </div>
+                                <div class="down-content" >
+                                    <div style="height: 100px">
+                                        <a><h4 th:utext="${category.name}"></h4></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved.
+                <br>Design: <a href="https://templatemo.com/page/1" target="_parent" title="website templates">TemplateMo</a></p>
+        </div>
+    </section>
+
+
+<!--    <section>-->
+<!--        <div class="container" style="margin-top: 24px;-->
+<!--    grid-row-gap: 24px;-->
+<!--    grid-column-gap: 8px">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-4">-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/02/Google-1_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/02/Google-1_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/03/amazon-1_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/03/amazon-1_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/02/Pasha-bank_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/02/Pasha-bank_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/02/Kontakt_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/02/Kontakt_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/03/egov_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/03/egov_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/02/Kapital_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/02/Kapital_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/02/Azercelll_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/02/Azercelll_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/02/Havas-l_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/02/Havas-l_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/02/Guavapay-Logo_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/02/Guavapay-Logo_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/02/Bolt-erestun-3_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/02/Bolt-erestun-3_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/02/ASAN-Logo_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/02/ASAN-Logo_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/03/mccann-logo-vector-2_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/03/mccann-logo-vector-2_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                    <a href="" target="_blank">-->
+<!--                        <img class="lazy loaded" src="https://code.edu.az/wp-content/uploads/2024/03/Azintelecom_png.webp" data-src="https://code.edu.az/wp-content/uploads/2024/03/Azintelecom_png.webp" style="width:150px" data-was-processed="true">-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+</section>
+
+</body>
+</html>
