@@ -3,19 +3,16 @@ package com.example.edumeeting.dtos.commentdtos;
 import com.example.edumeeting.dtos.articledtos.ArticleDto;
 import com.example.edumeeting.dtos.categorydtos.CategoryDto;
 import com.example.edumeeting.dtos.userdtos.UserDto;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CommentDto {
-    private Long id;
-    private String comment;
-    private String author;
+    private Long articleId;
+    private String content;
+    private String fullName;
     private LocalDateTime createdDate;
-    private ArticleDto article;
-    private UserDto user;
-
 }

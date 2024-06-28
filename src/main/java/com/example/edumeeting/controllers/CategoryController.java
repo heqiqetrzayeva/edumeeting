@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -20,9 +21,6 @@ public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
-
-    @Autowired
-    private ContactService contactService;
 
 
     @GetMapping("/admin/category/create")
@@ -44,5 +42,12 @@ public class CategoryController {
         categoryService.add(categoryCreateDto);
         return "redirect:/admin/category";
     }
+
+    @GetMapping("/admin/category/remove/{id}")
+    public String removeArticle(@ModelAttribute @PathVariable Long id){
+        categoryService.removeCategory(id);
+        return "redirect:/admin/category";
+    }
+
 
 }

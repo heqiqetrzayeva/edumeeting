@@ -29,8 +29,8 @@ public class Security {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(x->x.disable())
                 .authorizeHttpRequests(request-> request
-                        .requestMatchers("/admin/**").authenticated()
-//                        .requestMatchers("/admin/**").hasRole("ADMIN")
+//                        .requestMatchers("/admin/**").authenticated()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().permitAll())
                 .formLogin(form->form
                         .defaultSuccessUrl("/admin")

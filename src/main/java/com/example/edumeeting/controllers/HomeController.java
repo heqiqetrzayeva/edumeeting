@@ -13,12 +13,14 @@ import com.example.edumeeting.dtos.userdtos.UserCreateDto;
 import com.example.edumeeting.dtos.userdtos.UserDto;
 import com.example.edumeeting.dtos.vacancydtos.VacancyCreateDto;
 import com.example.edumeeting.dtos.vacancydtos.VacancyDto;
+import com.example.edumeeting.models.Comment;
 import com.example.edumeeting.models.Contact;
 import com.example.edumeeting.repositories.UserRepository;
 import com.example.edumeeting.services.*;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import org.modelmapper.ModelMapper;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
@@ -39,6 +41,7 @@ import java.nio.file.Paths;
 import java.security.Principal;
 import java.util.List;
 import java.util.UUID;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -107,21 +110,45 @@ public class HomeController {
 
         List<CommentDto> commentDto = commentService.getCommentsByArticleId(id);
         model.addAttribute("comments", commentDto);
-        List<ArticleRelatedDto> articleRelated = articleService.getRelatedArticles();
-        model.addAttribute("related", articleRelated);
+//        List<ArticleRelatedDto> articleRelated = articleService.getRelatedArticles();
+//        model.addAttribute("related", articleRelated);
 
         List<ContactDto> contacts = contactService.getAllContacts();
         model.addAttribute("contacts", contacts);
+
+//        ArticleDetailDto articleDetail = articleService.getDetail(id);
+//        model.addAttribute("article",articleDetail);
         return "meeting-details";
     }
 
     @PostMapping("/details/{id}/{seoUrl}")
-    public String addComment(CommentCreateDto commentCreateDto, Principal principal, @PathVariable Long id) {
-        String username = principal.getName();
-        commentCreateDto.setArticleId(id);
-        commentService.addComment(commentCreateDto, username);
-        return "redirect:meeting-details";
+    public String addComment(CommentCreateDto commentCreate,Principal principal, @PathVariable Long id, @PathVariable String seoUrl, @PathVariable Long parentId){
+
+        if (principal != null) {
+            String username = principal.getName();
+            commentCreate.setArticleId(id);
+            Comment reply = new Comment();
+            commentService.addReply(parentId, reply);
+
+            try {
+                commentService.addComment(commentCreate, username);
+                return "redirect:/details/" + commentCreate.getArticleId() + "/" + seoUrl;
+            } catch (Exception e) {
+                return "error";
+            }
+        } else {
+            return "redirect:login"; // Kullanıcı giriş yapmamışsa login sayfasına yönlendir
+        }
     }
+
+
+//    @PostMapping("/course/{id}/{seoUrl}")
+//    public String addComment(CommentCreateDto commentCreateDto, Principal principal, @PathVariable Long id) {
+//        String username = principal.getName();
+//        commentCreateDto.setArticleId(id);
+//        commentService.addComment(commentCreateDto, username);
+//        return "redirect:course";
+//    }
 
 
 //    @GetMapping("/vacancy-details/{id}")
@@ -153,6 +180,22 @@ public class HomeController {
         model.addAttribute("categories", categories);
         return "course";
     }
+
+//    @GetMapping("/details/{id}/{seoUrl")
+//    public String detail(Model model, @PathVariable Long id)
+//    {
+//        ArticleDetailDto articleDetail = articleService.getDetail(id);
+//        List<CommentDto> commentDto = commentService.getCommentsByArticleId(id);
+////        List<ArticleTrendVideoDto> trends = articleService.getTrendVideos();
+////        List<ArticleRelatedDto> articleRelated = articleService.getRelatedArticles(articleDetail.getCategory().getId());
+//        model.addAttribute("article",articleDetail);
+//        model.addAttribute("comments",commentDto);
+////        model.addAttribute("trends", trends);
+////        model.addAttribute("related",articleRelated);
+//        return "/meeting-details";
+//    }
+
+
 
 
 

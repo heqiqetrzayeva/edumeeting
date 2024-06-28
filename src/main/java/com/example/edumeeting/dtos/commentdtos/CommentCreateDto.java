@@ -1,13 +1,11 @@
 package com.example.edumeeting.dtos.commentdtos;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CommentCreateDto {
-    private Long id;
-    private String comment;
     private Long articleId;
-    private Long userId;
+    private String content;
 }

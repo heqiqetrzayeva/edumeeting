@@ -51,6 +51,13 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryDtos;
     }
 
+    @Override
+    public void removeCategory(Long categoryId) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow();
+        category.setIsDeleted(true);
+        categoryRepository.save(category);
+    }
+
 
     public CategoryDto getCategoryById(Long id) {
         return categoryRepository.findById(id).map(category -> modelMapper.map(category, CategoryDto.class)).orElse(null);

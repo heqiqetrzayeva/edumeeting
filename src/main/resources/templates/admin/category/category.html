@@ -21,19 +21,15 @@
                     <tr>
                         <th>#</th>
                         <th>Courses</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
-                    <tfoot>
-                    <tr>#</tr>
-                    <tr>Name</tr>
-                    </tfoot>
                     <tbody>
                     <tr th:each="category: ${categories}">
                         <td th:text="${category.id}"></td>
                         <td th:text="${category.name}"></td>
                         <td>
-<!--                            <a th:href="@{'/admin/article/update/'+${article.id}}" class="btn btn-outline-warning btn-sm">Update</a>-->
-<!--                            <button th:onclick="'remove('+${article.id}+')'" class="btn btn-outline-danger btn-sm">Delete</button>-->
+                            <button type="button" th:onclick="'delete('+${category.id}+')'" class="btn btn-outline-danger btn-sm">Delete</button>
                         </td>
                     </tr>
                 </table>

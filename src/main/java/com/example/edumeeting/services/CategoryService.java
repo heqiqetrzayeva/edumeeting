@@ -15,6 +15,8 @@ public interface CategoryService {
 
      List<CategoryDto> searchCategories(String keyword);
 
+     void removeCategory(Long categoryId);
+
 
 
 }

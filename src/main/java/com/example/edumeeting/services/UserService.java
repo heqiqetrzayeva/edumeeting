@@ -6,12 +6,15 @@ import com.example.edumeeting.dtos.userdtos.UserAddRoleDto;
 import com.example.edumeeting.dtos.userdtos.UserCreateDto;
 import com.example.edumeeting.dtos.userdtos.UserDashboardDto;
 import com.example.edumeeting.dtos.userdtos.UserDto;
+import com.example.edumeeting.models.UserEntity;
 
 import java.util.List;
 
 public interface UserService {
 
     boolean register(RegisterDto registerDto);
+
+    UserEntity findByEmail(String email);
 //    List<UserDto> getAllRegisters();
 
     void addUser(UserCreateDto userCreateDto);

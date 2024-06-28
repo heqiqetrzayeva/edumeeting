@@ -57,22 +57,6 @@ public class ArticleServiceImpl implements ArticleService {
         return articles;
     }
 
-//    @Override
-//    public List<ArticleDto> getAllArticles(int pageNumber, String searchKey) {
-//        Pageable pageable = (Pageable) PageRequest.of(pageNumber,12);
-//
-//        if (searchKey != null && !searchKey.isEmpty()) {
-//            return articleRepository.findAll(pageable);
-//        }
-//        else{
-//          return articleRepository.findByArticleNameContainingIgnore(
-//                    searchKey,searchKey,pageable
-//            );
-//
-//        }
-//
-//    }
-
     @Override
     public void addArticle(ArticleCreateDto articleCreateDto) {
         Article article = new Article();
@@ -111,13 +95,6 @@ public class ArticleServiceImpl implements ArticleService {
         return articleHomeDtos;
 
     }
-
-//    @Override
-//    public Page<ArticleDto> getArticles(int page, int size) {
-//        Pageable pageable = PageRequest.of(page, size);
-//        Page<Article> articlesPage = articleRepository.findAll(pageable);
-//        return articlesPage.map(article -> modelMapper.map(article, ArticleDto.class));
-//    }
 
     @Override
     public Page<ArticleDto> getArticles(int page, int size) {

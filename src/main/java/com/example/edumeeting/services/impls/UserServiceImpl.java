@@ -59,8 +59,14 @@ public class UserServiceImpl implements UserService {
         newUser.setConfirmationToken(token);
         newUser.setPassword(hashPassword);
         userRepository.save(newUser);
-//        emailService.sendConfirmationEmail(register.getEmail(),token);
+        emailService.sendConfirmationEmail(register.getEmail(),token);
         return true;
+    }
+
+    @Override
+    public UserEntity findByEmail(String email) {
+            UserEntity user = userRepository.findByEmail(email);
+            return user;
     }
 
 //    @Override
