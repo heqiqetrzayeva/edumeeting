@@ -10,6 +10,4 @@ public interface CommentService {
     List<CommentDto> getCommentsByArticleId(Long articleId);
 
     void addComment(CommentCreateDto createComment, String username);
-
-    Comment addReply(Long parentId, Comment reply);
 }

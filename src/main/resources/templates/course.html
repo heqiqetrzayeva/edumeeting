@@ -2,27 +2,22 @@
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="layout" xmlns:sec="http://www.w3.org/1999/xhtml">
 
-<body>
 <section layout:fragment="content">
-    <section class="heading-page header-text" id="top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2>Here are our courses</h2>
-                        <div class="col-7 m-auto">
-                            <form method="post">
-                                <div class="form-group d-flex">
-                                    <input type="text" name="keyword" placeholder="Search..." class="form-control">
-                                    <input type="submit" value="Search" class="btn btn-primary">
-                                </div>
-                            </form>
-                        </div>
+    <section class="meetings-page" id="meetings">
+        <div class="container" style="margin: 150px">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-7 m-auto">
+                        <form method="post">
+                            <div class="form-group d-flex">
+                                <input type="text" name="keyword" placeholder="Search..." class="form-control">
+                                <input type="submit" value="Search" class="btn btn-primary">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </section>
-
-    <section class="meetings-page" id="meetings">
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -54,5 +49,4 @@
         </div>
     </section>
 </section>
-</body>
 </html>

@@ -24,5 +24,10 @@ public class DashboardController {
         return "/admin/index";
     }
 
+    @GetMapping("/admin/comments")
+    public String comments(Model model) {
+        return "/admin/comments";
+    }
+
 
 }

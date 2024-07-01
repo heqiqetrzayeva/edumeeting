@@ -29,13 +29,13 @@ public class Security {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(x->x.disable())
                 .authorizeHttpRequests(request-> request
-//                        .requestMatchers("/admin/**").authenticated()
+                        .requestMatchers("/admin/**").authenticated()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().permitAll())
                 .formLogin(form->form
-                        .defaultSuccessUrl("/admin")
                         .loginPage("/login")
-                        .failureUrl("/login?error"))
+                        .failureUrl("/login?error")
+                        .successHandler(new CustomAuthenticationSuccessHandler()))
                 .logout(logout->logout
                         .logoutSuccessUrl("/login"))
                 .exceptionHandling(e->e

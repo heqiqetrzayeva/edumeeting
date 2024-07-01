@@ -6,34 +6,65 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-<div class="container col-6 m-auto">
-    <form method="post">
-        <div class="form-group">
-            <label for="exampleInputName">Name</label>
-            <input type="text" class="form-control" id="exampleInputName" name="firstName" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputSurname">Surname</label>
-            <input type="text" class="form-control" id="exampleInputSurname" name="lastName" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword2">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword2" name="passwordRepeat" placeholder="Password">
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+<section class="h-100 bg-dark">
+    <div class="container py-5 h-100">
+        <form action="" method="post">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col">
+                    <div class="card card-registration my-4">
+                        <div class="row g-0">
+                            <div class="col-xl-6 d-none d-xl-block">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                                     alt="Sample photo" class="img-fluid"
+                                     style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card-body p-md-5 text-black">
+                                    <h3 class="mb-5 text-uppercase">Student registration form</h3>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div data-mdb-input-init class="form-outline form-group">
+                                                <input name="firstName" type="text" id="form3Example1m" class="form-control form-control-lg" />
+                                                <label class="form-label" for="form3Example1m">First name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div data-mdb-input-init class="form-outline form-group">
+                                                <input name="lastName" type="text" id="form3Example1n" class="form-control form-control-lg" />
+                                                <label class="form-label" for="form3Example1n">Last name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline mb-4 form-group">
+                                        <input name="email" type="email" id="form3Example97" class="form-control form-control-lg" />
+                                        <label class="form-label" for="form3Example97">Email ID</label>
+                                    </div>
+
+
+                                    <div data-mdb-input-init class="form-outline mb-4 form-group">
+                                        <input name="password" type="password" id="form4Example97" class="form-control form-control-lg" />
+                                        <label class="form-label" for="form3Example97">Password</label>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline mb-4 form-group">
+                                        <input name="passwordRepeat" type="password" id="form5Example97" class="form-control form-control-lg" />
+                                        <label class="form-label" for="form3Example97">Password</label>
+                                    </div>
+                                    <div class="d-flex justify-content-end pt-3">
+                                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-lg ms-2">Submit form</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>
 </body>
 </html>

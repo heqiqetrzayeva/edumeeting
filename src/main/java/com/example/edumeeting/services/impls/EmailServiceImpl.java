@@ -16,9 +16,9 @@ public class EmailServiceImpl implements EmailService {
     public void sendConfirmationEmail(String email, String token) {
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setFrom("lurline31@ethereal.email");
-        mailMessage.setTo("lurline31@ethereal.email");
-        mailMessage.setSubject("Confirm email");
+        mailMessage.setFrom("heqiqetrzayeva1999@gmail.com");
+        mailMessage.setTo("heqiqetrzayeva1999@gmail.com");
+        mailMessage.setSubject("");
         String result = "http://localhost:8082/auth/confirm?email=" +email+"$token="+token;
         mailMessage.setText("Şifrenizi sıfırlamak için aşağıdaki bağlantıya tıklayın:\n" + result);
         javaMailSender.send(mailMessage);

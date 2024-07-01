@@ -1,49 +1,22 @@
 package com.example.edumeeting.controllers;
 
-import com.example.edumeeting.dtos.articledtos.ArticleCreateDto;
 import com.example.edumeeting.dtos.articledtos.ArticleDto;
 import com.example.edumeeting.dtos.articledtos.ArticleHomeDto;
-import com.example.edumeeting.dtos.articledtos.ArticleRelatedDto;
 import com.example.edumeeting.dtos.categorydtos.CategoryDto;
 import com.example.edumeeting.dtos.commentdtos.CommentCreateDto;
 import com.example.edumeeting.dtos.commentdtos.CommentDto;
-import com.example.edumeeting.dtos.contactdtos.ContactCreateDto;
 import com.example.edumeeting.dtos.contactdtos.ContactDto;
-import com.example.edumeeting.dtos.userdtos.UserCreateDto;
-import com.example.edumeeting.dtos.userdtos.UserDto;
-import com.example.edumeeting.dtos.vacancydtos.VacancyCreateDto;
-import com.example.edumeeting.dtos.vacancydtos.VacancyDto;
-import com.example.edumeeting.models.Comment;
-import com.example.edumeeting.models.Contact;
 import com.example.edumeeting.repositories.UserRepository;
 import com.example.edumeeting.services.*;
-import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpServletRequest;
 import org.modelmapper.ModelMapper;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
-import org.springframework.data.repository.query.Param;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.security.Principal;
 import java.util.List;
-import java.util.UUID;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Controller
 public class HomeController {
@@ -80,6 +53,11 @@ public class HomeController {
         List<ArticleDto> articles = articleService.getTwoArticles();
         model.addAttribute("articles", articles);
         return "home";
+    }
+
+    @GetMapping("/yoxlama")
+    public String test(Model model) {
+        return "yoxlama";
     }
 
 
@@ -122,20 +100,14 @@ public class HomeController {
     }
 
     @PostMapping("/details/{id}/{seoUrl}")
-    public String addComment(CommentCreateDto commentCreate,Principal principal, @PathVariable Long id, @PathVariable String seoUrl, @PathVariable Long parentId){
+    public String addComment(CommentCreateDto commentCreate,Principal principal, @PathVariable Long id, @PathVariable String seoUrl){
 
         if (principal != null) {
             String username = principal.getName();
             commentCreate.setArticleId(id);
-            Comment reply = new Comment();
-            commentService.addReply(parentId, reply);
-
-            try {
                 commentService.addComment(commentCreate, username);
                 return "redirect:/details/" + commentCreate.getArticleId() + "/" + seoUrl;
-            } catch (Exception e) {
-                return "error";
-            }
+
         } else {
             return "redirect:login"; // Kullanıcı giriş yapmamışsa login sayfasına yönlendir
         }

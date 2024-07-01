@@ -130,24 +130,26 @@
                     </section>
 
                     <section>
-                        <div class="container my-3 py-5 text-body">
+                        <div class="container my-3 py-5 text-body" sec:authorize="isAuthenticated()">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-12">
                                     <form action="" method="post">
                                          <div class="card">
                                             <div class="card-body p-4">
                                                 <div class="d-flex flex-start">
-                                                    <div class="w-100" sec:authorize="isAuthenticated()">
+                                                    <div class="w-100">
                                                         <h5>Add a comment</h5>
                                                         <div data-mdb-input-init class="form-outline">
                                                             <textarea name="content" class="form-control" id="textAreaExample" rows="4"></textarea>
                                                             <label class="form-label" for="textAreaExample">What is your view?</label>
                                                         </div>
-                                                        <div sec:authorize="!isAuthenticated()" class="d-flex justify-content-between mt-3">
-                                                            <a href="/login" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-success">Login</a>
+                                                        <div class="d-flex justify-content-between mt-3">
                                                             <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger">
                                                                 Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
                                                             </button>
+                                                        </div>
+                                                        <div sec:authorize="!isAuthenticated()" class="d-flex justify-content-between mt-3">
+                                                            <a href="/login" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-success">Login</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -158,29 +160,6 @@
                             </div>
                         </div>
                     </section>
-
-
-
-
-
-
-
-<!--                    <div  class="custombox clearfix">-->
-<!--                        <h4 class="small-title">Leave a Reply</h4>-->
-<!--                        <div  sec:authorize="isAuthenticated()" class="row">-->
-<!--                            <div class="col-lg-12">-->
-<!--                                <form  method="post" class="form-wrapper">-->
-<!--                                    <textarea name="content" class="form-control" placeholder="Your comment"></textarea>-->
-<!--                                    <button type="submit" class="btn btn-primary">Submit Comment</button>-->
-<!--                                </form>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div sec:authorize="!isAuthenticated()">-->
-<!--                            <a class="btn btn-primary" href="/login">Login</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                </div><!-- end page-wrapper -->
-            </div><!-- end col -->
 
                     <div class="container">
                         <div class="row">

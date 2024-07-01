@@ -46,12 +46,6 @@ public class CommentServiceImpl implements CommentService {
         commentRepository.save(newComment);
     }
 
-    public Comment addReply(Long parentId, Comment reply) {
-        Comment parentComment = commentRepository.findById(parentId).orElseThrow(() -> new IllegalArgumentException("Comment not found"));
-        reply.setParentComment(parentComment);
-        return commentRepository.save(reply);
-    }
-
     @Override
     public List<CommentDto> getCommentsByArticleId(Long articleId) {
         List<Comment> result = commentRepository.findByArticleId(articleId);
@@ -63,18 +57,4 @@ public class CommentServiceImpl implements CommentService {
 
         return comments;
     }
-//
-//
-//    @Override
-//    public void addComment(CommentCreateDto commentCreateDto, String username) {
-//
-//        Comment comment = new Comment();
-//        UserEntity user = userRepository.findById(commentCreateDto.getUserId()).orElseThrow();
-//
-//        comment.setComment(commentCreateDto.getComment());
-//        comment.setUser(user);
-//        comment.setCreatedDate(LocalDateTime.now());
-//
-//        commentRepository.save(comment);
-//    }
 }

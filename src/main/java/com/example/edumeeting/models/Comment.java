@@ -19,14 +19,6 @@ public class Comment {
     private String content;
     private Date createdDate;
 
-    @ManyToOne
-    @JoinColumn(name = "parent_id")
-    private Comment parentComment;
-
-
-    @OneToMany(mappedBy = "parentComment", cascade = CascadeType.ALL)
-    private List<Comment> replies;
-
 
     @ManyToOne
     private UserEntity user;

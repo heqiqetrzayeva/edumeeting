@@ -1455,7 +1455,7 @@ heading page
 */
 
 section.heading-page {
-  background-image: url(../images/heading-bg.jpg);
+  background-image: url("https://img.freepik.com/free-photo/programming-background-collage_23-2149901779.jpg?t=st=1719639720~exp=1719643320~hmac=cb952d41e0352c84897ba057d8195554a024f3c9763822acc4b1f1df2cc0cf71&w=996");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

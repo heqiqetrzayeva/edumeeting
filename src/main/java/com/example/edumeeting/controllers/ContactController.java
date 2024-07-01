@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -49,16 +50,21 @@ public class ContactController {
     }
 
     @PostMapping("/contact")
-    public String createContact(@ModelAttribute ContactCreateDto contactCreateDto ) throws IOException {
+    public String createContact(@ModelAttribute ContactCreateDto contactCreateDto) throws IOException {
         UUID rand = UUID.randomUUID();
         MultipartFile resume = contactCreateDto.getResume();
+
+
         StringBuilder fileNames = new StringBuilder();
         Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, rand + resume.getOriginalFilename());
         fileNames.append(resume.getOriginalFilename());
         Files.write(fileNameAndPath, resume.getBytes());
 
+//        contactCreateDto.setResumePath(rand + resume.getOriginalFilename());
+
         contactCreateDto.setResumePath(rand + resume.getOriginalFilename());
         contactService.addContact(contactCreateDto);
         return "redirect:contact";
     }
+
 }
